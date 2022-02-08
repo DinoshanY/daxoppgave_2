@@ -2,8 +2,8 @@ body {
     padding: 0;
     margin: 0;
     background-color: black;
-    color: rgb(255,255,255);
-    background-image: url(Image/images.jpeg);
+    color: rgb(255, 0, 0);
+    background-image: url(Image/D10C2B55.webp);
     background-position: center;
     background-size: cover;
 }
@@ -13,6 +13,9 @@ body {
     background-position: center;
     background-size: cover;
     height: 500px;
+    opacity: 0.5;
+    display: relative;
+    margin-bottom: 0;
 }
 
 

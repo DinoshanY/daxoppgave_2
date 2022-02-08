@@ -8,7 +8,6 @@
   </head>
   <body>
     <!---->
-    <div class="skull"></div>
     <section class="section">
       <form action="sumbit" onsubmit="return false;">
         <h3>Fodselsdato</h3>
@@ -51,9 +50,9 @@
         <input
           id="wowRace"
           type="text"
-          placeholder="Race or No"
-          minlength="2"
-          maxlength="4"
+          placeholder="Race"
+          minlength="1"
+          maxlength="7"
         />
 
         <h3>Antall ganger rettet Geir sin program</h3>
@@ -63,7 +62,6 @@
           placeholder="0-6"
           minlength="1"
           maxlength="1"
-          required
         />
 
         <h3>How active are you in a week</h3>
@@ -73,7 +71,6 @@
           placeholder="0-7"
           minlength="1"
           maxlength="1"
-          required
         />
 
         <h3>How much fastfood di you eats</h3>
@@ -83,50 +80,34 @@
           placeholder="0-21"
           minlength="1"
           maxlength="2"
-          required
         />
 
         <h3>Do you eat at school</h3>
         <input
           id="hasFrokostForSkole"
-          type="text"
-          placeholder="Yes or No"
-          minlength="2"
-          maxlength="3"
-          required
+          type="checkbox"
         />
 
         <h3>Dose a female drive for you</h3>
         <input
           id="hasDrivingFemalePartner"
-          type="text"
-          placeholder="Yes or No"
-          minlength="2"
-          maxlength="3"
-          required
+          type="checkbox"
         />
 
         <h3>Dose a male drive for you</h3>
         <input
           id="hasMaleDrivingPartner"
-          type="text"
-          placeholder="Yes or No"
-          minlength="2"
-          maxlength="3"
-          required
+          type="checkbox"
         />
 
         <h3>Do you play games in class</h3>
         <input
           id="isSpillerItimen"
-          type="text"
-          placeholder="Yes or No"
-          minlength="2"
-          maxlength="3"
-          required
+          type="checkbox"
         />
 
         <input type="submit" />
+        <div class="skull"></div>
       </form>
     </section>
 
