@@ -13,14 +13,29 @@
       <form action="sumbit" onsubmit="return false;">
         <h3>Fodselsdato</h3>
         <input
-          id="fodselsdato"
-          type="date"
-          placeholder="DD/MM/YY"
-          minlength="6"
-          maxlength="8"
+          id="fodselsdatoD"
+          type="number"
+          placeholder="Days"
+          minlength="2"
+          maxlength="2"
           required
         />
-        
+        <input
+          id="fodselsdatoM"
+          type="number"
+          placeholder="Monts"
+          minlength="1"
+          maxlength="2"
+          required
+        />
+        <input
+          id="fodselsdatoY"
+          type="number"
+          placeholder="Year"
+          minlength="4"
+          maxlength="4"
+          required
+        />
 
         <h3>Gender 1 for man, 2 for women or 3 for bi</h3>
         <input
@@ -31,7 +46,6 @@
           maxlength="1"
           required
         />
-  
 
         <h3>World of Warcraft races do you play or leave ematy</h3>
         <input
@@ -41,7 +55,6 @@
           minlength="2"
           maxlength="4"
         />
-    
 
         <h3>Antall ganger rettet Geir sin program</h3>
         <input
@@ -53,7 +66,6 @@
           required
         />
 
-
         <h3>How active are you in a week</h3>
         <input
           id="treningPerUke"
@@ -63,7 +75,6 @@
           maxlength="1"
           required
         />
-
 
         <h3>How much fastfood di you eats</h3>
         <input
@@ -75,7 +86,6 @@
           required
         />
 
-
         <h3>Do you eat at school</h3>
         <input
           id="hasFrokostForSkole"
@@ -85,7 +95,6 @@
           maxlength="3"
           required
         />
-
 
         <h3>Dose a female drive for you</h3>
         <input
@@ -97,7 +106,6 @@
           required
         />
 
-
         <h3>Dose a male drive for you</h3>
         <input
           id="hasMaleDrivingPartner"
@@ -107,7 +115,6 @@
           maxlength="3"
           required
         />
-
 
         <h3>Do you play games in class</h3>
         <input
@@ -120,7 +127,6 @@
         />
 
         <input type="submit" />
-
       </form>
     </section>
 

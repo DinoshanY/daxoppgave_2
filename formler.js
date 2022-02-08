@@ -1,27 +1,31 @@
-let fodselsdato = document.getElementById("fodselsdato").value;
-let isKvinne = document.getElementById("isKvinne").value;
-let wowRace = document.getElementById("wowRace").value;
-let antallGangerRettetGeirSinProg = document.getElementById("antallGangerRettetGeirSinProg".value);
-let treningPerUke = document.getElementById("treningPerUke").value;
-let McTjukkasPerManed = document.getElementById("McTjukkasPerManed").value;
-let hasFrokostForSkole = document.getElementById("hasFrokostForSkole".value);
-let hasDrivingFemalePartner = document.getElementById("hasDrivingFemalePartner".value);
-let hasMaleDrivingPartner = document.getElementById("hasMaleDrivingPartner").value;
-let isSpillerItimen = document.getElementById("isSpillerItimen").value;
-
-
-
-
-
+let fodselsdatoD = document.getElementById("fodselsdatoD");
+let fodselsdatoM = document.getElementById("fodselsdatoM");
+let fodselsdatoY = document.getElementById("fodselsdatoY");
+let isKvinne = document.getElementById("isKvinne");
+let wowRace = document.getElementById("wowRace");
+let antallGangerRettetGeirSinProg = document.getElementById("antallGangerRettetGeirSinProg");
+let treningPerUke = document.getElementById("treningPerUke");
+let McTjukkasPerManed = document.getElementById("McTjukkasPerManed");
+let hasFrokostForSkole = document.getElementById("hasFrokostForSkole");
+let hasDrivingFemalePartner = document.getElementById("hasDrivingFemalePartner");
+let hasMaleDrivingPartner = document.getElementById("hasMaleDrivingPartner");
+let isSpillerItimen = document.getElementById("isSpillerItimen");
 
 
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  console.log(fodselsdato.value)
+  
   let today = new Date();
-  let timeLeft = today.getDate()+" "+today.getUTCDay()+" "+today.getFullYear();
+  let day = today.getDay() - fodselsdatoD.value;
+  let mont = today.getDate() - fodselsdatoM.value;
+  let year = today.getFullYear() - fodselsdatoY.value;
+  let timeLeft = day + mont + year * 365;
+  console.log(day)
+  console.log(mont)
+  console.log(year)
+  console.log(timeLeft)
 
   calculateExactTimeOfDeath(timeLeft, isKvinne, wowRace, antallGangerRettetGeirSinProg,
     treningPerUke, McTjukkasPerManed,  
@@ -31,7 +35,9 @@ form.addEventListener("submit", (e) => {
 
 
 /**
- * @param {String} fodselsdato format: ddmmyy
+ * @param {String} fodselsdatoY format: dd
+ * @param {String} fodselsdatoM format: mm
+ * @param {String} fodselsdatoY format: yy
  * @param {number} isKvinne //how you identify, hvis du er ikke binær, bruk det tallet som du synes beskriver kjønnet ditt best
  * @param {String} wowRace //other MMO's count too.. 
  * @param {number} antallGangerRettetGeirSinProg 
@@ -49,21 +55,21 @@ function calculateAge(
     hasFrokostForSkole, hasDrivingFemalePartner, hasMaleDrivingPartner,
     isSpillerItimen){
         let calculatedAge;
-        if(isKvinne = 1){
+        if(isKvinne.value = 1){
             calculatedAge = 81.7;
         } else {
             calculatedAge = 76.1;
         }
 
         if(wowRace) calculatedAge -=10.2; //To much sitting still..
-        calculatedAge -= (McTjukkasPerManed*4.666);
-        calculatedAge = calculatedAge - antallGangerRettetGeirSinProg*1.2
-        calculatedAge = calculatedAge + treningPerUke * 1.2;
-        calculatedAge += (hasFrokostForSkole * 4.19);
-        calculatedAge -= (isSpillerItimen * 4.21);
-        calculatedAge += (hasDrivingFemalePartner * 3.75);
-        calculatedAge -= (hasMaleDrivingPartner * 3.71); 
-        calculatedAge -= (isSpillerItimen * 4.62)
+        calculatedAge -= (McTjukkasPerManed.value*4.666);
+        calculatedAge = calculatedAge - antallGangerRettetGeirSinProg.value*1.2
+        calculatedAge = calculatedAge + treningPerUke.value * 1.2;
+        calculatedAge += (hasFrokostForSkole.value * 4.19);
+        calculatedAge -= (isSpillerItimen.value * 4.21);
+        calculatedAge += (hasDrivingFemalePartner.value * 3.75);
+        calculatedAge -= (hasMaleDrivingPartner.value * 3.71); 
+        calculatedAge -= (isSpillerItimen .value* 4.62)
 
 
         return calculatedAge;
