@@ -1,0 +1,27 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: rgb(255,255,255);
+    background-image: url(Image/images.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+
+.skull{
+    background-image: url(Image/outline-skull-in-black-design-vector-25972827.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.textcenter{
+    text-align: center;
+}
