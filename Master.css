@@ -1,30 +1,29 @@
 body {
-    padding: 0;
-    margin: 0;
-    background-color: black;
-    color: rgb(255, 0, 0);
-    background-image: url(Image/D10C2B55.webp);
-    background-position: center;
-    background-size: cover;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  color: rgb(255, 0, 0);
+  background-image: url(Image/D10C2B55.webp);
+  background-position: center;
+  background-size: cover;
 }
 
-.skull{
-    background-image: url(Image/outline-skull-in-black-design-vector-25972827.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 500px;
-    opacity: 0.5;
-    display: relative;
-    margin-bottom: 0;
+.skull {
+  background-image: url(Image/outline-skull-in-black-design-vector-25972827.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+  opacity: 0.5;
+  display: relative;
+  margin-bottom: 0;
 }
-
 
 .center {
-    margin: auto;
-    width: 60%;
-    padding: 10px;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 
-.textcenter{
-    text-align: center;
+.textcenter {
+  text-align: center;
 }

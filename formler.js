@@ -71,13 +71,16 @@ function calculateAge(
   }
 
   if (wowRace) calculatedAge - 10.2; //To much sitting still..
-  calculatedAge -= McTjukkasPerManed.value * 4.666/100;
-  calculatedAge = calculatedAge - antallGangerRettetGeirSinProg.value * (1.2/100);
-  calculatedAge = calculatedAge + treningPerUke.value * (1.2/100);
-  if (hasFrokostForSkole.checked) calculatedAge = calculatedAge * (4.19/100);
-  if (hasMaleDrivingPartner.checked) calculatedAge = calculatedAge * (3.75/100);
-  if (hasDrivingFemalePartner.checked) calculatedAge = calculatedAge * (3.71/100);
-  if (isSpillerItimen.checked) calculatedAge = calculatedAge * (4.62/100);
+  calculatedAge -= (McTjukkasPerManed.value * 4.666) / 100;
+  calculatedAge =
+    calculatedAge - antallGangerRettetGeirSinProg.value * (1.2 / 100);
+  calculatedAge = calculatedAge + treningPerUke.value * (1.2 / 100);
+  if (hasFrokostForSkole.checked) calculatedAge = calculatedAge * (4.19 / 100);
+  if (hasMaleDrivingPartner.checked)
+    calculatedAge = calculatedAge * (3.75 / 100);
+  if (hasDrivingFemalePartner.checked)
+    calculatedAge = calculatedAge * (3.71 / 100);
+  if (isSpillerItimen.checked) calculatedAge = calculatedAge * (4.62 / 100);
 
   return calculatedAge;
 }
