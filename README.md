@@ -1,4 +1,14 @@
 # daxoppgave_2
-Clone, branch and push!
+Forked til branch fra Pontifex-Programmerer.
 
-Make your own branch, and push to that branch. That is how you hand in this assignment.
+Add css med svart bakgrun, hvite skulles og et blood hjerte
+
+add semantisk html
+
+javascript
+skrive ut dag og klokeslett brukeren dør
+skal telle ned til dødspunckt
+
+hvsi bruker sin døds ponkt har vært skal bruker enkeres udødelig 
+skal telle op hvor lenge bruker har levd
+
