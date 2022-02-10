@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <!---->
+    <!--User inputs-->
     <section class="section">
       <form action="sumbit" onsubmit="return false;">
         <h3>Fodselsdato</h3>
@@ -47,13 +47,15 @@
         />
 
         <h3>World of Warcraft races do you play or leave ematy</h3>
-        <input
-          id="wowRace"
-          type="text"
-          placeholder="Race"
-          minlength="1"
-          maxlength="7"
-        />
+        <select name="wowRace" id="wowRace" required>
+          <option value="0">None</option>
+          <option value="1">Orc</option>
+          <option value="2">Elf</option>
+          <option value="3">Tauren</option>
+          <option value="4">Dwarf</option>
+          <option value="5">Troll</option>
+          <option value="6">Gnome</option>
+        </select>
 
         <h3>Antall ganger rettet Geir sin program</h3>
         <input
@@ -95,10 +97,19 @@
         <input id="isSpillerItimen" type="checkbox" />
 
         <input type="submit" />
-        <div class="skull"></div>
       </form>
     </section>
 
+    <!--Timer-->
+    <section class="skull">
+      <div id="deathMessage"></div>
+      <div id="yearsDeath"></div>
+      <div id="daysDeath"></div>
+      <div id="hoursDeath"></div>
+      <div id="minutsDeath"></div>
+      <div id="sekundsDeath"></div>
+      <div id="millisekundsDeath"></div>
+    </section>
     <script src="formler.js"></script>
   </body>
 </html>

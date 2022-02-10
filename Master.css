@@ -13,9 +13,9 @@ body {
   background-position: center;
   background-size: cover;
   height: 500px;
-  opacity: 0.5;
   display: relative;
   margin-bottom: 0;
+  color: rgb(255, 255, 255);
 }
 
 .center {
