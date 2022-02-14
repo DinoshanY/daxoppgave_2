@@ -7,6 +7,23 @@
     <title>Document</title>
   </head>
   <body>
+    <!--Timer-->
+    <section class="countdown">
+      <div id="deathMessage">Countdown to death</div>
+      <div id="yearsDeath"></div>
+      <div id="daysDeath"></div>
+      <div id="hoursDeath"></div>
+      <div id="minutsDeath"></div>
+      <div id="sekundsDeath"></div>
+      <div id="millisekundsDeath"></div>
+    </section>
+
+    <section class="date">
+      <div id="deathDateMessage">Date of death</div>
+      <span id="hoursTime"></span><span id="minutsTime"></span
+      ><span id="sekundsTime"></span>
+    </section>
+
     <!--User inputs-->
     <section class="section">
       <form action="sumbit" onsubmit="return false;">
@@ -17,6 +34,8 @@
           placeholder="Days"
           minlength="2"
           maxlength="2"
+          max="31"
+          min="1"
           required
         />
         <input
@@ -25,6 +44,8 @@
           placeholder="Monts"
           minlength="1"
           maxlength="2"
+          max="12"
+          min="1"
           required
         />
         <input
@@ -100,20 +121,6 @@
       </form>
     </section>
 
-<section class="date">
-<div id="deathDateMessage"></div>
-</section>
-
-    <!--Timer-->
-    <section class="time">
-      <div id="deathMessage"></div>
-      <div id="yearsDeath"></div>
-      <div id="daysDeath"></div>
-      <div id="hoursDeath"></div>
-      <div id="minutsDeath"></div>
-      <div id="sekundsDeath"></div>
-      <div id="millisekundsDeath"></div>
-    </section>
     <section class="skull"></section>
     <section class="heart"></section>
     <script src="formler.js"></script>
