@@ -36,11 +36,11 @@
           required
         />
 
-        <h3>Gender 1 for man, 2 for women or 3 for bi</h3>
+        <h3>Velg et tall som beskrive dit kjønn</h3>
         <input
           id="isKvinne"
-          type="text"
-          placeholder="1, 2 or 3"
+          type="number"
+          placeholder="0"
           minlength="1"
           maxlength="1"
           required
@@ -61,7 +61,7 @@
         <input
           id="antallGangerRettetGeirSinProg"
           type="number"
-          placeholder="0-6"
+          placeholder=""
           minlength="1"
           maxlength="1"
         />
@@ -70,7 +70,7 @@
         <input
           id="treningPerUke"
           type="number"
-          placeholder="0-7"
+          placeholder=""
           minlength="1"
           maxlength="1"
         />
@@ -79,7 +79,7 @@
         <input
           id="McTjukkasPerManed"
           type="number"
-          placeholder="0-21"
+          placeholder=""
           minlength="1"
           maxlength="2"
         />
@@ -100,8 +100,12 @@
       </form>
     </section>
 
+<section class="date">
+<div id="deathDateMessage"></div>
+</section>
+
     <!--Timer-->
-    <section class="skull">
+    <section class="time">
       <div id="deathMessage"></div>
       <div id="yearsDeath"></div>
       <div id="daysDeath"></div>
@@ -110,6 +114,8 @@
       <div id="sekundsDeath"></div>
       <div id="millisekundsDeath"></div>
     </section>
+    <section class="skull"></section>
+    <section class="heart"></section>
     <script src="formler.js"></script>
   </body>
 </html>

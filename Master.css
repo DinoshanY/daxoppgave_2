@@ -2,20 +2,30 @@ body {
   padding: 0;
   margin: 0;
   background-color: black;
-  color: rgb(255, 0, 0);
+  background-image: url(Image/360_F_322139928_34sVFOmHEwoYt7cc3IZnLz2B0LMOJh4C.jpg);
+  background-position: center;
+  background-size: cover;
+  color: rgb(255, 255, 255);
+}
+
+.heart {
   background-image: url(Image/D10C2B55.webp);
   background-position: center;
   background-size: cover;
+  height:300;
+  width: 500;
+  display: block;
+  position: relative;
 }
 
 .skull {
   background-image: url(Image/outline-skull-in-black-design-vector-25972827.jpg);
   background-position: center;
   background-size: cover;
-  height: 500px;
-  display: relative;
-  margin-bottom: 0;
-  color: rgb(255, 255, 255);
+  height:300;
+  width: 500;
+  display: block;
+  position: relative;
 }
 
 .center {
@@ -27,3 +37,23 @@ body {
 .textcenter {
   text-align: center;
 }
+
+
+.section{
+  text-align: center;
+  width: auto;
+}
+
+
+input,
+select {
+    display: inline-block;
+    text-align: center;
+}
+
+input:focus,
+select:focus{
+    outline-width: 4px;
+    outline-color: rgb(255, 230, 0);
+} 
+

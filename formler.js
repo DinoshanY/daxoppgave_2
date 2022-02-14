@@ -28,6 +28,7 @@ let zombie;
 
 //deathMessage
 let deathMessage = document.getElementById("deathMessage");
+let deathDateMessage = document.getElementById("deathDateMessage");
 
 //Gets todays date, and starts fucntion
 const form = document.querySelector("form");
@@ -81,30 +82,34 @@ function calculateAge(
   isSpillerItimen
 ) {
   let calculatedAge;
-  if (isKvinne == 1) {
+  if (isKvinne.value > 0) {
     calculatedAge = 81.7;
-    console.log("1", calculatedAge);
   } else {
     calculatedAge = 76.1;
-    console.log("1", calculatedAge);
+    console.log(calculatedAge);
   }
 
-  if (wowRace.value > 0) {calculatedAge = calculatedAge - 10.2; //To much sitting still..
+  if (wowRace.value > 0) {
+    calculatedAge = calculatedAge - 10.2; //To much sitting still..
   }
-  calculatedAge = calculatedAge - antallGangerRettetGeirSinProg.value * (1.2 / 100);
-  
+  calculatedAge =
+    calculatedAge - antallGangerRettetGeirSinProg.value * (1.2 / 100);
+
   calculatedAge = calculatedAge - (McTjukkasPerManed.value * 4.666) / 100;
- 
+
   calculatedAge = calculatedAge + treningPerUke.value * (1.2 / 100);
 
-  if (hasFrokostForSkole.checked) calculatedAge = calculatedAge + calculatedAge * (4.19 / 100);
-  
-  if (hasMaleDrivingPartner.checked) calculatedAge = calculatedAge + calculatedAge * (3.75 / 100);
- 
-  if (hasDrivingFemalePartner.checked) calculatedAge = calculatedAge  + calculatedAge* (3.71 / 100);
+  if (hasFrokostForSkole.checked)
+    calculatedAge = calculatedAge + calculatedAge * (4.19 / 100);
 
-  if (isSpillerItimen.checked) calculatedAge = calculatedAge + calculatedAge * (4.62 / 100);
- 
+  if (hasMaleDrivingPartner.checked)
+    calculatedAge = calculatedAge - calculatedAge * (3.75 / 100);
+
+  if (hasDrivingFemalePartner.checked)
+    calculatedAge = calculatedAge - calculatedAge * (3.71 / 100);
+
+  if (isSpillerItimen.checked)
+    calculatedAge = calculatedAge + calculatedAge * (4.62 / 100);
 
   return calculatedAge;
 }
@@ -137,79 +142,241 @@ function calculateExactTimeOfDeath(
 
   // calculets tim left
   let yourLifeSpand = achievedAge - timeLeft;
-  let noDesLife = yourLifeSpand.toFixed(0)
 
-  //start of countdown or countup 
-  if (noDesLife < 0){
+  //to turn sting to number
+  //let noDesLife = Math.floor((yourLifeSpand.toFixed(0)));
+  let noDesLife = yourLifeSpand;
+
+  //start of countdown or countup
+  if (noDesLife < 0 || 0) {
+    //countup
     let undead = noDesLife * -1;
     timeYouHave(undead);
     zombie = 1;
-    deathMessage.textContent = "You have survied your death death see bellow how long you have survied";
-  } else{
+    deathMessage.textContent =
+      "You have survied your death date see bellow how long you have survied";
+    deathDateMessage.textContent = "Your a immortal";
+  } else {
+    //countdown
     timeYouHave(noDesLife);
     zombie = -1;
-    deathMessage.textContent = "Your death coutdown has started see bellow how much time you have left"
+    deathMessage.textContent =
+      "Your death coutdown has started see bellow how much time you have left";
+    deathDate(noDesLife);
   }
 
   return null; //f
 }
 
-
 //countdown and countup
-async function timeYouHave(years){
+async function timeYouHave(years) {
   let days = years * 365;
   let hours = days * 24;
   let minuts = hours * 60;
   let sekunder = minuts * 60;
-  let milisek  = sekunder * 1000;
+  let milisek = sekunder * 1000;
 
-  millisekundsDeath.textContent = milisek + "Ms"
-  sekundsDeath.textContent = sekunder + "S"
-  minutsDeath.textContent = minuts + "M"
-  hoursDeath.textContent = hours + "H"
-  daysDeath.textContent = days + "D"
-  yearsDeath.textContent = years + "Y"
+  millisekundsDeath.textContent = milisek + "Ms";
+  sekundsDeath.textContent = sekunder + "S";
+  minutsDeath.textContent = minuts + "M";
+  hoursDeath.textContent = hours + "H";
+  daysDeath.textContent = days + "D";
+  yearsDeath.textContent = years + "Y";
 
+  //milisek counter
   setTimeout(() => {
-    milisek = milisek + zombie
-    millisekundsDeath.textContent = milisek + "Ms"
+    milisek = milisek + zombie;
+    millisekundsDeath.textContent = milisek + "Ms";
     setInterval(() => {
-      milisek = milisek + zombie
-      millisekundsDeath.textContent = milisek + "Ms"
-    },1);
-  },1);
+      milisek = milisek + zombie;
+      millisekundsDeath.textContent = milisek + "Ms";
+    }, 1);
+  }, 1);
 
-setTimeout(() => {
-  sekunder = sekunder + zombie
-  sekundsDeath.textContent = sekunder + "S"
-  setInterval(() => {
-    sekunder = sekunder + zombie
-    sekundsDeath.textContent = sekunder + "S"
-  },1000);
-},1000);
+  //sekund countor
+  setTimeout(() => {
+    sekunder = sekunder + zombie;
+    sekundsDeath.textContent = sekunder + "S";
+    setInterval(() => {
+      sekunder = sekunder + zombie;
+      sekundsDeath.textContent = sekunder + "S";
+    }, 1000);
+  }, 1000);
 
-setTimeout(() => {
-  minuts = minuts + zombie
-  minutsDeath.textContent = minuts + "M"
-  setInterval(() => {
-    minuts = minuts + zombie
-    minutsDeath.textContent = minuts + "M"
-  },60 *1000);
-},60 *1000);
+  //minuts countor
+  setTimeout(() => {
+    minuts = minuts + zombie;
+    minutsDeath.textContent = minuts + "M";
+    setInterval(() => {
+      minuts = minuts + zombie;
+      minutsDeath.textContent = minuts + "M";
+    }, 60 * 1000);
+  }, 60 * 1000);
 
-setTimeout(() => {
-  hours = hours + zombie
-  hoursDeath.textContent = hours + "H"
-setInterval(() => {
-  hours = hours + zombie
-  hoursDeath.textContent = hours + "H"
-},(60*1000)*60);
-},(60*1000)*60);
+  //hours counter
+  setTimeout(() => {
+    hours = hours + zombie;
+    hoursDeath.textContent = hours + "H";
+    setInterval(() => {
+      hours = hours + zombie;
+      hoursDeath.textContent = hours + "H";
+    }, 60 * 1000 * 60);
+  }, 60 * 1000 * 60);
 
+  //day countor
+  setTimeout(() => {
+    days = days + zombie;
+    hoursDeath.textContent = days + "D";
+    setInterval(() => {
+      days = days + zombie;
+      daysDeath.textContent = days + "D";
+    }, 60 * 1000 * 60 * 24);
+  }, 60 * 1000 * 60 * 24);
 
+  //year countor
+  setTimeout(() => {
+    years = years + zombie;
+    hoursDeath.textContent = years + "Y";
+    setInterval(() => {
+      years = years + zombie;
+      yearsDeath.textContent = years + "Y";
+    }, 60 * 1000 * 60 * 24 * 365);
+  }, 60 * 1000 * 60 * 24 * 365);
 }
 
+//date you will die
+async function deathDate(dateCal) {
+  let todyssss = new Date();
+  let getDateYear = todyssss.getFullYear() + dateCal;
 
+  yearAdd = getDateYear - Math.trunc(getDateYear);
+  FinalDeathYear = yearAdd * 365;
+  months(FinalDeathYear,Math.trunc(getDateYear));
+
+  //let hoursDate = daysDate * 24;
+  //let minutsDate = hoursDate * 60;
+  //let sekunderDate = minutsDate * 60;
+}
+
+//stops countdown when millisecund hits 0
+async function stopper(test) {
+  if (test == 0) {
+    zombie = 0;
+    return zombie;
+  }
+}
+
+//date calculater
+async function months(dateDaysLeft, yearYouWillDie) {
+  //january 31 days
+  if (dateDaysLeft > 31) {
+    dateDaysLeft = dateDaysLeft - 31;
+  } else {
+    if (dateDaysLeft < 31) {
+      console.log(yearYouWillDie, "January", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //feburay 28 or 29(leap years) days
+  if (dateDaysLeft > 28) {
+    dateDaysLeft = dateDaysLeft - 28;
+  } else {
+    if (dateDaysLeft < 28) {
+      console.log(yearYouWillDie, "Feburay", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //march 31 days
+  if (dateDaysLeft > 31) {
+    dateDaysLeft = dateDaysLeft - 31;
+  } else {
+    if (dateDaysLeft < 31) {
+      console.log(yearYouWillDie, "March", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //april 30 days
+  if (dateDaysLeft > 30) {
+    dateDaysLeft = dateDaysLeft - 30;
+  } else {
+    if (dateDaysLeft < 30) {
+      console.log(yearYouWillDie, "April", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //may 31 days
+  if (dateDaysLeft > 31) {
+    dateDaysLeft = dateDaysLeft - 31;
+  } else {
+    if (dateDaysLeft < 31) {
+      console.log(yearYouWillDie, "May", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //june 30 days
+  if (dateDaysLeft > 30) {
+    dateDaysLeft = dateDaysLeft - 30;
+  } else {
+    if (dateDaysLeft < 30) {
+      console.log(yearYouWillDie, "June", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //july 31 days
+  if (dateDaysLeft > 31) {
+    dateDaysLeft = dateDaysLeft - 31;
+  } else {
+    if (dateDaysLeft < 31) {
+      console.log(yearYouWillDie, "July", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //august 31 days
+  if (dateDaysLeft > 31) {
+    dateDaysLeft = dateDaysLeft - 31;
+  } else {
+    if (dateDaysLeft < 31) {
+      console.log(yearYouWillDie, "August", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //september 30 days
+  if (dateDaysLeft > 30) {
+    dateDaysLeft = dateDaysLeft - 30;
+  } else {
+    if (dateDaysLeft < 30) {
+      console.log(yearYouWillDie, "September", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //october 31 days
+  if (dateDaysLeft > 31) {
+    dateDaysLeft = dateDaysLeft - 31;
+  } else {
+    if (dateDaysLeft < 31) {
+      console.log(yearYouWillDie, "October", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //november 30 days
+  if (dateDaysLeft > 30) {
+    dateDaysLeft = dateDaysLeft - 30;
+  } else {
+    if (dateDaysLeft < 30) {
+      console.log(yearYouWillDie, "November", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+  //december 31 days
+  if (dateDaysLeft > 31) {
+    dateDaysLeft = dateDaysLeft - 31;
+  } else {
+    if (dateDaysLeft < 31) {
+      console.log(yearYouWillDie, "December", Math.trunc(dateDaysLeft));
+      return;
+    }
+  }
+}
 
 
 
