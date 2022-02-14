@@ -50,12 +50,6 @@ const monthsDate = [
 ];
 const daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-//time for date of deaths
-let hoursTime = document.getElementById("hoursTime");
-let minutsTime = document.getElementById("minutsTime");
-let sekundsTime = document.getElementById("sekundsTime");
-
-
 //Gets todays date, and starts fucntion
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
@@ -187,7 +181,6 @@ function calculateExactTimeOfDeath(
       "Your death coutdown has started see bellow how much time you have left";
     deathDate(noDesLife);
   }
-
 }
 
 //countdown and countup
@@ -198,16 +191,14 @@ function timeYouHave(years) {
   let sekunder = minuts * 60;
   let milisek = sekunder * 1000;
 
-//countdwon and up date staret
+  //countdwon and up date staret
   timeCounter(1, millisekundsDeath, "Ms", milisek);
   timeCounter(1000, sekundsDeath, "S", sekunder);
   timeCounter(60 * 1000, minutsDeath, "M", minuts);
   timeCounter(60 * 1000 * 60, hoursDeath, "H", hours);
   timeCounter(60 * 1000 * 60 * 24, daysDeath, "D", days);
   timeCounter(60 * 1000 * 60 * 24 * 365, yearsDeath, "Y", years);
-
 }
-
 
 //countdown/up and time
 function timeCounter(realTime, whatKindOfTime, htmlMessage, amountOfTime) {
@@ -245,36 +236,28 @@ function months(dateDaysLeft, yearYouWillDie, days, monthsYouDie, numbArray) {
     months(dateDaysLeft, yearYouWillDie, daysPerMonth[x], monthsDate[x], x);
   } else {
     if (dateDaysLeft < days) {
-    
-      let a = (dateDaysLeft - Math.trunc(dateDaysLeft)) * 24;
-      let b = (a - Math.trunc(a)) * 60;
-      let c = (b - Math.trunc(b)) * 60;
-
-      timeCounterClock(60 * 1000 * 24, hoursTime, ":", a);
-      timeCounterClock(60 * 1000, minutsTime, ":", b);
-      timeCounterClock(1000, sekundsTime, "", c);
+      //clock
+      let dateHour = (dateDaysLeft - Math.trunc(dateDaysLeft)) * 24;
+      let dateMinut = (dateHour - Math.trunc(dateHour)) * 60;
+      let datesekund = (dateMinut - Math.trunc(dateMinut)) * 60;
+      let dateMilSekund = (datesekund - Math.trunc(datesekund)) * 1000;
 
       deathDateMessage.textContent =
-        yearYouWillDie + " " + monthsYouDie + " " + Math.trunc(dateDaysLeft) +" "+ "Is the day you will die";
+        yearYouWillDie +
+        " " +
+        monthsYouDie +
+        " " +
+        Math.trunc(dateDaysLeft) +
+        " " +
+        Math.trunc(dateHour) +
+        ":" +
+        Math.trunc(dateMinut) +
+        ":" +
+        Math.trunc(datesekund) +
+        ":" +
+        Math.trunc(dateMilSekund) +
+        " " +
+        "Is the day you will die";
     }
   }
 }
-
-//etemt at clock
-
-function timeCounterClock(realTime, whatKindOfTime, htmlMessage, amountOfTime) {
-  whatKindOfTime.textContent = Math.trunc(amountOfTime) + htmlMessage;
-  setTimeout(() => {
-    amountOfTime = amountOfTime + zombie;
-    whatKindOfTime.textContent = Math.trunc(amountOfTime) + htmlMessage;
-    setInterval(() => {
-      amountOfTime = amountOfTime + zombie;
-      if (amountOfTime = 0){
-        amountOfTime = amountOfTime + 60
-        return amountOfTime;
-      }
-      whatKindOfTime.textContent = Math.trunc(amountOfTime) + htmlMessage;
-    }, realTime);
-  }, realTime);
-}
-
