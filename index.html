@@ -9,7 +9,8 @@
   <body>
     <!--Timer-->
     <section class="countdown">
-      <div id="deathMessage">Countdown to death</div>
+      <label>Countdown to death</label>
+      <div id="deathMessage"></div>
       <div id="yearsDeath"></div>
       <div id="daysDeath"></div>
       <div id="hoursDeath"></div>
@@ -19,9 +20,8 @@
     </section>
 
     <section class="date">
-      <div id="deathDateMessage">Date of death</div>
-      <span id="hoursTime"></span><span id="minutsTime"></span
-      ><span id="sekundsTime"></span>
+      <label>Date of death</label>
+      <div id="deathDateMessage"></div>
     </section>
 
     <!--User inputs-->
@@ -32,7 +32,7 @@
           id="fodselsdatoD"
           type="number"
           placeholder="Days"
-          minlength="2"
+          minlength="1"
           maxlength="2"
           max="31"
           min="1"
@@ -41,7 +41,7 @@
         <input
           id="fodselsdatoM"
           type="number"
-          placeholder="Monts"
+          placeholder="Mohnts"
           minlength="1"
           maxlength="2"
           max="12"

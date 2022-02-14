@@ -160,26 +160,22 @@ function calculateExactTimeOfDeath(
   // calculets tim left
   let yourLifeSpand = achievedAge - timeLeft;
 
-  //to turn sting to number
-  //let noDesLife = Math.floor((yourLifeSpand.toFixed(0)));
-  let noDesLife = yourLifeSpand;
-
   //start of countdown or countup
-  if (noDesLife < 0 || 0) {
+  if (yourLifeSpand < 0 || 0) {
     //countup
-    let undead = noDesLife * -1;
+    let undead = yourLifeSpand * -1;
     timeYouHave(undead);
     zombie = 1;
     deathMessage.textContent =
       "You have survied your death date see bellow how long you have survied";
-    deathDateMessage.textContent = "Your a immortal";
+    deathDateMessage.textContent = "Dose not exist, You are immortal";
   } else {
     //countdown
-    timeYouHave(noDesLife);
+    timeYouHave(yourLifeSpand);
     zombie = -1;
     deathMessage.textContent =
       "Your death coutdown has started see bellow how much time you have left";
-    deathDate(noDesLife);
+    deathDate(yourLifeSpand);
   }
 }
 
@@ -243,21 +239,20 @@ function months(dateDaysLeft, yearYouWillDie, days, monthsYouDie, numbArray) {
       let dateMilSekund = (datesekund - Math.trunc(datesekund)) * 1000;
 
       deathDateMessage.textContent =
-        yearYouWillDie +
+        Math.trunc(dateDaysLeft) +
         " " +
         monthsYouDie +
         " " +
-        Math.trunc(dateDaysLeft) +
+        yearYouWillDie +
         " " +
+        "Kl:" +
         Math.trunc(dateHour) +
         ":" +
         Math.trunc(dateMinut) +
         ":" +
         Math.trunc(datesekund) +
         ":" +
-        Math.trunc(dateMilSekund) +
-        " " +
-        "Is the day you will die";
+        Math.trunc(dateMilSekund);
     }
   }
 }
